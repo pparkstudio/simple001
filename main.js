@@ -1,5 +1,23 @@
 const generateBtn = document.getElementById('generate-btn');
 const numberElements = document.querySelectorAll('.number');
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// 초기 테마 설정 확인
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+  body.classList.add('dark-mode');
+  themeToggle.textContent = '라이트 모드';
+}
+
+// 테마 토글 이벤트
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
+  const isDark = body.classList.contains('dark-mode');
+  
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  themeToggle.textContent = isDark ? '라이트 모드' : '다크 모드';
+});
 
 generateBtn.addEventListener('click', () => {
   const lottoNumbers = generateLottoNumbers();

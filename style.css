@@ -1,22 +1,70 @@
+:root {
+  --bg-color: #f0f0f0;
+  --container-bg: #ffffff;
+  --text-color: #333333;
+  --shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  --btn-bg: #4CAF50;
+  --btn-hover: #45a049;
+  --number-bg: #eee;
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --container-bg: #1e1e1e;
+  --text-color: #e0e0e0;
+  --shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  --btn-bg: #388e3c;
+  --btn-hover: #2e7d32;
+  --number-bg: #333;
+}
+
 body {
   font-family: sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f0f0f0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  margin: 0;
 }
 
 .container {
   text-align: center;
-  background-color: #fff;
+  background-color: var(--container-bg);
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 h1 {
-  margin-top: 0;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+#theme-toggle {
+  background: none;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.3s;
+}
+
+#theme-toggle:hover {
+  background-color: var(--text-color);
+  color: var(--container-bg);
 }
 
 .number-display {
@@ -31,10 +79,12 @@ h1 {
   height: 40px;
   line-height: 40px;
   border-radius: 50%;
-  background-color: #eee;
+  background-color: var(--number-bg);
   margin: 0 0.5rem;
   font-size: 1.2rem;
   font-weight: bold;
+  color: #fff; /* 번호 숫자는 항상 흰색 유지 (배경색 대비) */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 #generate-btn {
@@ -43,11 +93,20 @@ h1 {
   cursor: pointer;
   border: none;
   border-radius: 5px;
-  background-color: #4CAF50;
+  background-color: var(--btn-bg);
   color: white;
   transition: background-color 0.3s;
 }
 
 #generate-btn:hover {
-  background-color: #45a049;
+  background-color: var(--btn-hover);
+}
+
+footer {
+  margin-top: 1.5rem;
+}
+
+footer p {
+  font-size: 0.9rem;
+  opacity: 0.8;
 }
