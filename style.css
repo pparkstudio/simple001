@@ -172,3 +172,9 @@ footer p {
   cursor: not-allowed;
   opacity: 0.6;
 }
+
+.comments-section {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--number-bg);
+}
