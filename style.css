@@ -166,3 +166,9 @@ footer p {
 #submit-btn:hover {
   background-color: var(--btn-hover);
 }
+
+#submit-btn:disabled {
+  background-color: var(--number-bg);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
